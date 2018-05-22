@@ -2,7 +2,6 @@ package classpath;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 
@@ -21,14 +20,14 @@ public class Poem {
             char[] temp = new char[1024];
             FileInputStream inputStream = new FileInputStream(file);
             InputStreamReader reader = new InputStreamReader(inputStream);
-            while (reader.read(temp)!=-1){
+            while (reader.read(temp) != -1) {
                 sb.append(new String(temp));
                 temp = new char[1024];
             }
             inputStream.close();
             reader.close();
             System.out.println(sb.toString());
-        }catch (Exception e){
+        } catch (Exception e) {
 
         }
     }
