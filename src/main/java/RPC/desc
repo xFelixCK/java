@@ -1,0 +1,12 @@
+RPC是远程过程调用的简称，广泛应用在大规模分布式应用中，作用是有助于系统的垂直拆分，使系统更易拓展。
+Java中的RPC框架比较多，各有特色，广泛使用的有RMI、Hessian、Dubbo等。
+RPC还有一个特点就是能够跨语言，本文只以JAVA语言里的RPC为例。
+
+
+其他的框架结构也类似，区别在于对象的序列化方法，传输对象的通讯协议，以及注册中心的管理与failover设计（利用zookeeper）。
+
+客户端和服务端可以运行在不同的JVM中，Client只需要引入接口，接口的实现以及运行时需要的数据都在Server端，
+RPC的主要依赖技术是序列化、反序列化和传输协议，JAVA里对应的就是对象的序列化、反序列化以及序列化后数据的传输。
+RMI的序列化和反序列化是JAVA自带的，Hessian里的序列化和反序列化是私有的，传输协议则是HTTP，Dubbo的序列化可以多种选择，
+一般使用Hessian的序列化协议，传输则是TCP协议，使用了高性能的NIO框架Netty。对于序列化，我还了解一些，
+像Google的ProBuffer、JBoss Marshalling和Apache Thrift等
